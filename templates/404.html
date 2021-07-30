@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>SoftNBA | Shots of the NBA</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container mainContent">
+	<div class="row my-row">
+        There was a problem getting the shots for {{ group }}, {{ year }}.
+    </div>
+</div>
+<br>
+<!-- <a  href="{{ url_for('index') }}"">
+<button>Go back</button>
+</a> -->
+{% endblock %}

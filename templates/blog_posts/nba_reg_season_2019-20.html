@@ -1,0 +1,80 @@
+{% extends 'post_template.html' %}
+
+{% block head2 %}
+<script type="module" src="{{url_for('static', filename='js/theneedledrop/the_needledrop_2021.js')}}"></script>
+<script  type="module" src="{{url_for('static', filename='js/nba_reg_19/WL_viz_21.js')}}"></script>
+{% endblock %} 
+
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block caption %}
+{{ caption }}
+{% endblock %}
+{% block author %}
+{{ author}}
+{% endblock %}
+{% block date %}
+{{ date }}
+{% endblock %}
+{% block data_source %}
+<a class="post-link" target="_blank" href="{{ data_source }}">Basketball-Reference.com</a>
+{% endblock %}
+{% block data_file %}
+<a class="post-link" target="_blank" href="{{ data_file }}">NBA 2019-20 Regular Season Data</a>
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/WL_viz.css') }}">
+<script src="https://unpkg.com/d3@6.6.0/dist/d3.min.js"></script>
+<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+<div class="post-content">
+<p>With COVID-19 leading to a 5-month suspension of NBA basketball, and the sterile, fanless environement of the Bubble, 
+    last season might not have been the most memorable. Lot's of injuries, and not many marquee matchups.
+    So to help us all remember that 3-game winning streak your team might have had during the regular season, 
+    or their journey to a swift first-round exit, 
+    I present to you: a Visual Recap of the 2019-20 season.
+    Let's get started! 
+</p>
+
+<div class="row display-row">
+    <div class="col-4">
+        <span id="splits-menu">
+        </span> 
+        <span id="speed-btns">
+        </span>
+    </div>
+    <div class="col-8">
+       <span id="notes-display"></span>
+       <svg id="svg-skip"></svg>
+    </div>
+</div>
+<div id="chart1">
+    <svg id="svg-reg">
+        <g id="main-g"></g>
+    </svg>
+</div>
+
+<p> A static version of the above W-L visualization:</p>
+
+<div id="chart2">
+    <svg id="svg-reg2">
+        <g id="main-g2"></g>
+    </svg>
+</div>
+<p>After the bubble games were the bubble playoffs. So first let's get rid of the non-playoff teams.</p>
+<div id="clickerWrapper2">
+    <button id="play-button2">Fade' em</button>
+</div>
+<svg id="svg-P"></svg>
+
+<p>
+I'm really happy this year's playoffs aren't in a bubble, but still the energy feels a bit off. We'll see how the Finals hold up... 
+If you enjoyed this piece, be on the lookout out for my 2020-21 Reg Season Recap once this season ends!
+</p>
+</div>
+{% endblock %}
+
+<!-- The Bubble Suns could extend their 8-win run from Orlando, 
+    the Jazz and Bucks could again establish themselves as the regular season powerhouses they were last season, and the Timberwolves could look to make the playoffs this year.
+    Some of these hopes came true, and some slowly faded away from the realm of probabilistic reality. -->

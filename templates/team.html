@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Student Virology Group | Team</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container container-p">
+    <h2 class="page-header">The Team</h2>
+    <div class="row">
+    {% for pic in profile_pics %}
+        <div class="col-4">
+            <img class="pp-img" src="{{ '../static/images/profile_pics/' + pic}}" alt="person">
+        </div>  
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="icon" type="image/png" href="{{ url_for('static',filename='images/svgLogo2_trans.png') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+        <script src="https://kit.fontawesome.com/951c18f50b.js"></script>
+        <script type="module" src="{{url_for('static', filename='js/navScrollHide.js')}}"></script>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img class="brand-img" src="{{ url_for('static',filename='images/svgLogo2_trans.png') }}" height="80px" width="auto">
+            <a class="navbar-brand" href="/">Student Virology Group</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/content/">Activities</a></li>
+                <li class="nav-item"><a class="nav-link" href="/team/">Meet the Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="/join_team/">Join us</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        {% block body %}{% endblock %}
+        <footer class="footer">
+            <a class="footer-link" href="mailto:smalldatablog@gmail.com">
+                <i class="far fa-envelope fa-lg"></i>
+            </a>
+            <a class="footer-link" href="http://www.instagram.com/smalldatablog/" target="_blank">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+        </footer>
+    </body>
+</html>

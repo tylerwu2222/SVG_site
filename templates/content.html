@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<title>Student Virology Group | Activities</title>
+<script type="module" src="{{url_for('static', filename='js/datasets.js')}}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container blog-container">
+    {% for ds in datasets %}
+        <a class="data-link" id="filenames[loop.index0]" category="{{ categories[loop.index0] }}" href="{{ ds }}"><p>{{ filenames[loop.index0] }}</p></a>
+    {% endfor %}
+    <h2 class="activity-header">Thing we did 1</h2>
+    <h2 class="activity-header">Thing we did 2</h2>
+    <h2 class="activity-header">Thing we did 3</h2>
+    <h2 class="activity-header">Thing we did 4</h2>
+</div>
+{% endblock %}
