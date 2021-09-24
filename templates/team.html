@@ -9,9 +9,14 @@
 <div class="container container-p">
     <h2 class="page-header">The Team</h2>
     <div class="row">
-    {% for pic in profile_pics %}
+    {% for key,member in member_info.iterrows() %}
         <div class="col-4">
-            <img class="pp-img" src="{{ '../static/images/profile_pics/' + pic}}" alt="person">
+            <img src="{{'../static/images/profile_pics/' + member['FirstName'] + '_' + member['LastName'] + '.jpg'}}" 
+                class="member-pic">
+            <p><b class="member-name">{{ member['FirstName'] }} {{ member['LastName'] }}</b></p>
+            <p class="member-position">{{ member['Title'] }}</p>
+            <p class="member-major">{{ member['Year'] }} Year {{ member['Major'] }} Major</p>
+            <p class="member-bio">{{ member['Bio'] }}</p>
         </div>  
     {% endfor %}
     </div>

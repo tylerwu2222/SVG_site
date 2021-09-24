@@ -16,18 +16,18 @@ def index():
     return render_template('index.html')
 
 ## BLOG PAGE
-@app.route('/content/')
-def blog():
-    # blog_posts = pd.read_excel('static/data/blog_posts.xlsx')
-    return render_template('content.html')
-        # posts = blog_posts)
+@app.route('/events/')
+def events():
+    event_info = pd.read_excel('static/data/events.xlsx')
+    return render_template('events.html',
+        event_info = event_info)
 
 @app.route('/team/')
 def team():
-    pp_wd = 'static/images/profile_pics'
-    profile_pics = os.listdir(pp_wd)
+    member_info = pd.read_excel('static/data/members.xlsx')
+    print(member_info)
     return render_template('team.html',
-        profile_pics = profile_pics)
+        member_info = member_info)
 
 ## DATASETS
 @app.route('/join_team/')

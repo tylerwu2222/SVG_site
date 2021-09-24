@@ -1,4 +1,15 @@
-.pp-img{
-    width: 20vw;
-    height: auto;
+.member-pic{
+    max-height: 20vw;
+    max-width: 20vw;
+}
+.member-name{
+    font-size: larger;
+}
+.member-position{
+    font-size: medium;
+}
+.member-major,
+.member-bio{
+    font-size: small;
+    text-align: justify;
 }
