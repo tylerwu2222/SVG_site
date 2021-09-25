@@ -1,6 +1,16 @@
+
+/* member classes */
+
 .member-pic{
     max-height: 20vw;
     max-width: 20vw;
+    border-radius: 5px;
+}
+@media only screen and (max-width: 600px) {
+    .member-pic{
+        max-height: 60vw;
+        max-width: 60vw;
+    }
 }
 .member-name{
     font-size: larger;
@@ -13,3 +23,23 @@
     font-size: small;
     text-align: justify;
 }
+
+.hover-div{
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+    filter:brightness(90%);
+    margin: 2em;
+    padding: 1em;
+}
+.hover-div:hover{
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:black;
+    filter:brightness(100%);
+    transform: translate(-5px, -5px);
+    box-shadow: 5px 5px 0px rgb(0, 0, 0);
+}
+
+/*  */

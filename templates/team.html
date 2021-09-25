@@ -10,7 +10,7 @@
     <h2 class="page-header">The Team</h2>
     <div class="row">
     {% for key,member in member_info.iterrows() %}
-        <div class="col-sm-6 col-12">
+        <div class="col-sm-5 col-10 hover-div">
             <img src="{{'../static/images/profile_pics/' + member['FirstName'] + '_' + member['LastName'] + '.jpg'}}" 
                 class="member-pic">
             <p><b class="member-name">{{ member['FirstName'] }} {{ member['LastName'] }}</b></p>
