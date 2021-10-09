@@ -9,11 +9,27 @@
 <div class="container blog-container">
     <div>
     {% for key,event in event_info.iterrows() %}
+    <div class="event-div">
         <h2 class="event-name">{{ event['Name'] }}</h2>
-        <p class="event-time">{{ event['Date'].strftime('%b %d, %Y') }}, {{ event['Start_Time'].strftime('%#I:%M %p') }} to {{ event['End_Time'].strftime('%#I:%M %p') }}</p>
-        <p class="event-location">Location: {{ event['Location'] }}</p>  
+        {% if event['Date'] == "TBD"%}
+            <p class="event-time">Date: {{ event['Date'] }} </p>
+        {% else %}
+            <p class="event-time">Date: {{ event['Date'].strftime('%b %d, %Y') }} </p>
+        {% endif %}
+        {% if (event['Start_Time'] == "TBD") %}
+            <p class="event-time">Time: {{ event['Start_Time'] }}</p>
+        {% elif (event['Start_Time'] == "N")%}
+        {% else %}
+            <p class="event-time">Time: {{ event['Start_Time'].strftime('%#I:%M %p') }} to {{ event['End_Time'].strftime('%#I:%M %p') }}</p>
+        {% endif %}
+
+        {% if (event['Start_Time'] == "N")%}  
+        {% else %}
+            <p class="event-location">Location: {{ event['Location'] }}</p> 
+        {% endif %}
         <!-- <p class="event-spots">Spots Taken: {{ event['Spots_Taken'] }} / {{ event['Spots_Left']}}</p>   -->
         <p class="event-details">{{ event['Details'] }}</p>  
+    </div>
     {% endfor %}
     </div>
 </div>
