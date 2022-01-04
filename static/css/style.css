@@ -50,3 +50,10 @@
 .event-details{
     font-size: large;
 }
+
+.event-pic{
+    object-fit: cover;
+    width: 100% !important;
+    height: 75vh;
+    border-radius: 10px;
+}

@@ -13,19 +13,33 @@ app = Flask(__name__)
 ## INDEX
 @app.route('/')
 def index():
-    return render_template('index.html')
+    base_path = 'static/images/front_page_pics'
+    images = ['../' + base_path + '/' + img for img in os.listdir(base_path)]
+    return render_template('index.html',
+    images = images)
 
 ## BLOG PAGE
 @app.route('/events/')
 def events():
     event_info = pd.read_excel('static/data/events.xlsx')
+    base_path = 'static/images/event_pics'
+    image_base_dir = os.listdir(base_path)
+    df_list = []
+    for image_folder in image_base_dir:
+        images = os.listdir(os.path.join(base_path,image_folder))
+        for img in images:
+            path = '../' + os.path.normpath(os.path.join(base_path,image_folder,img)).replace('\\','/')
+            row = [image_folder,img, path]
+            df_list.append(row)
+    img_df=pd.DataFrame(df_list,columns=['folder','img','path'])
+    print(img_df)
     return render_template('events.html',
+        image_df = img_df,
         event_info = event_info)
 
 @app.route('/team/')
 def team():
     member_info = pd.read_excel('static/data/members.xlsx')
-    print(member_info)
     return render_template('team.html',
         member_info = member_info)
 

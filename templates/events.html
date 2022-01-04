@@ -2,7 +2,6 @@
 
 {% block head %} 
 <title>Student Virology Group | Activities</title>
-<script type="module" src="{{url_for('static', filename='js/datasets.js')}}"></script>
 {% endblock %}
 
 {% block body %}
@@ -22,11 +21,43 @@
         {% else %}
             <p class="event-time">Time: {{ event['Start_Time'].strftime('%#I:%M %p') }} to {{ event['End_Time'].strftime('%#I:%M %p') }}</p>
         {% endif %}
-
         {% if (event['Start_Time'] == "N")%}  
         {% else %}
             <p class="event-location">Location: {{ event['Location'] }}</p> 
         {% endif %}
+        {% if (event['Images'] == "Y")%}
+        <div id="{{event['Name']}}carousel" class="carousel slide" data-ride="carousel">
+            <ul class="carousel-indicators">
+            {% for key,row in image_df.iterrows() %}
+                {% if key == 0 %}
+                    <li data-target="#{{event['Name']}}carousel" data-slide-to="0" class="active"></li>
+                {% else %}
+                <li data-target="#{{event['Name']}}carousel" data-slide-to="{{key}}"></li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            <div class="carousel-inner">
+            {% for key,row in image_df.iterrows() %}
+                {% if (row['folder'] == event['Name']) %}
+                    {% if key == 0 %}
+                        <div class="carousel-item active">
+                    {% else %}
+                        <div class="carousel-item">
+                    {% endif %}
+                            <img src="{{row['path']}}" alt="there should be an image here" class='event-pic'>
+                        </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#{{event['Name']}}carousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#{{event['Name']}}carousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+        </div>
+        {% endif %}
+          
         <!-- <p class="event-spots">Spots Taken: {{ event['Spots_Taken'] }} / {{ event['Spots_Left']}}</p>   -->
         <p class="event-details">{{ event['Details'] }}</p>  
     </div>

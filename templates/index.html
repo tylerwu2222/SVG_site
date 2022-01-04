@@ -5,10 +5,41 @@
 {% endblock %}
 
 {% block body %}
+
 <div class="container">
+    <!-- img carousel  -->
+    <div id="front-page-carousel" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+        {% for image in images %}
+            {% if loop.index == 1 %}
+                <li data-target="#front-page-carousel" data-slide-to="0" class="active"></li>
+            {% else %}
+            <li data-target="#front-page-carousel" data-slide-to="{{loop.index}}"></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        <div class="carousel-inner">
+        {% for image in images %}
+                {% if loop.index == 1 %}
+                    <div class="carousel-item active">
+                {% else %}
+                    <div class="carousel-item">
+                {% endif %}
+                        <img src="{{image}}" alt="there should be an image here" class='event-pic'>
+                    </div>
+        {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#front-page-carousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#front-page-carousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <!-- description -->
     <p id="slogan" class="center center-text">
         The Student Virology Group (SVG) aims to promote the study of virology both at UCLA and in the surrounding Los Angeles community. Regardless of your familiarity with virology, we welcome you to join us in learning more about the organisms that have directly impacted all of our lives in the past year and a half. SVG offers opportunities to discuss the latest research and to meet guest speakers at the forefront of the field. In addition, we work with public schools and local governments to give seminars on public health, introductory virology, and SARS-CoV-2.
     </p>
-    <div class="carousel-div"></div>
 </div>
+
 {% endblock %}
