@@ -28,19 +28,28 @@
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/events/">Events</a></li>
                 <li class="nav-item"><a class="nav-link" href="/team/">Meet the Team</a></li>
-                <li class="nav-item"><a class="nav-link" href="/join_team/">Join us</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="/join_team/">Join us</a></li> -->
+                <li class="nav-item"><a class="nav-link" href="/contact/">Contact Us</a></li>
               </ul>
             </div>
           </nav>
-        {% block body %}{% endblock %}
-        <footer class="footer">
-            <a class="footer-link" href="mailto:smalldatablog@gmail.com">
-                <i class="far fa-envelope fa-lg"></i>
-            </a>
-            <a class="footer-link" href="http://www.instagram.com/smalldatablog/" target="_blank">
-                <i class="fab fa-instagram fa-lg"></i>
-            </a>
-        </footer>
+        <div id="page-container">
+          {% block body %}{% endblock %}
+          <form action="#">
+            <footer class="footer">
+                <a class="footer-link" href="mailto:svg.ucla@gmail.com">
+                    <i class="far fa-envelope fa-lg"></i>
+                </a>
+                <a class="footer-link" href="Student Virology Group @UCLA LinkedIn" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <span id="mailing-span">
+                  <label for="fname">Join our mailing list:</label>
+                  <input type="text" id="email" name="email" placeholder="Enter email">
+                  <input type="submit" value="Join">
+                </span>
+            </footer>
+          </form>
+        </div>
     </body>
 </html>

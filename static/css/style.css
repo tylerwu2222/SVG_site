@@ -1,5 +1,15 @@
+/* main page*/
+.center-text{
+    padding-top: 1em;
+    text-align: center;
+}
 
-/* member classes */
+/* carousel */
+.carousel{
+    padding-top: 1em;
+}
+
+/* members */
 
 .member-pic{
     max-height: 20vw;
@@ -56,4 +66,35 @@
     width: 100% !important;
     height: 75vh;
     border-radius: 10px;
+}
+
+/* contact */
+.blue-links{
+    color: #3D80B4;
+}
+
+/* footer */
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.container{
+    padding-bottom: 2.5em;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5em;
+    padding-left: 1em;
+}
+
+.footer-link{
+    padding: 0.1em;
+}
+
+#mailing-span{
+    padding-left: 0.3em;
 }
